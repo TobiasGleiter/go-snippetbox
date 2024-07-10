@@ -23,3 +23,17 @@ Notes:
 1. `>>` will append to the exitsting file instead of truncating it.
 2. `slog.New()` is concurrency safe and can be shared
 3. Be careful if multiple loggers try to write the same log file.
+
+### Installation
+
+#### Download
+
+`go mod download`will install all packages and check if the checksum is correct as in the go.sum file.
+
+#### Upgrade
+
+` go get -u github.com/foo/bar` (with the -u) or with version: `go get -u github.com/foo/bar@v2.0.0`
+
+#### Remove
+
+`go mod tidy` or `go get github.com/foo/bar@none`

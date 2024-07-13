@@ -19,6 +19,8 @@ func (app *application) routes() http.Handler {
 	// file will be served (so long as it exists).
 	mux.Handle("GET /static/", http.FileServerFS(ui.Files))
 
+	mux.HandleFunc("GET /ping", ping)
+
 	mux.Handle("GET /{$}", app.sessionManager.LoadAndSave(app.authenticate((http.HandlerFunc(app.home)))))
 	mux.Handle("GET /snippet/view/{id}", app.sessionManager.LoadAndSave(app.authenticate(noSurf(http.HandlerFunc(app.snippetView)))))
 	mux.Handle("GET /user/signup", app.sessionManager.LoadAndSave(app.authenticate(noSurf(http.HandlerFunc(app.userSignup)))))

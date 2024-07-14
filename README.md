@@ -37,3 +37,10 @@ Notes:
 #### Remove
 
 `go mod tidy` or `go get github.com/foo/bar@none`
+
+## Tests
+
+- `go test -v -short ./...` (Skip long-running tests)
+- `go test -v ./...` (Run all tests)
+- Cover: `go test -cover ./...`
+- Profiling: `go test -covermode=count -coverprofile=/tmp/profile.out ./...` and insights: `go tool cover -func=/tmp/profile.out` or html visuals: `go tool cover -html=/tmp/profile.out`
